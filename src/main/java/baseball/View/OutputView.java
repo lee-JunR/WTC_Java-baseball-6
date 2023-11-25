@@ -9,7 +9,7 @@ public class OutputView {
   public static final int MAX_STRIKE_COUNT = 3;
   public static final String GAME_RESULT_MESSAGE = "%d개의 숫자를 모두 맞히셨습니다! 게임 종료\n";
 
-  public void printGameStart() {
+  public static void printGameStart() {
     System.out.println(START_GAME_MESSAGE);
   }
 
