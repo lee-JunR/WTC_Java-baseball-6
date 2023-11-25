@@ -4,11 +4,11 @@ import baseball.Constant.BallStatus;
 import baseball.domain.BallNumber;
 import baseball.domain.BaseBallNumbers;
 
-public class Score {
+public class ScoreService {
 
   private static BaseBallNumbers answerNumbers;
 
-  public Score(BaseBallNumbers answerNumbers) {
+  public ScoreService(BaseBallNumbers answerNumbers) {
     this.answerNumbers = answerNumbers;
   }
 

@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 import baseball.Constant.BallStatus;
-import baseball.Service.Score;
+import baseball.Service.ScoreService;
 import baseball.domain.BallNumber;
 import baseball.domain.BaseBallNumbers;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +21,7 @@ public class ScoreServiceTest {
           new BallNumber(3)
       )
   );
-  Score score = new Score(computerNumbers);
+  ScoreService score = new ScoreService(computerNumbers);
 
 //  // TODO : 이렇게 테스트 코드 안에서 DTO 를 만드는 것이 옳은지는 모르겠음 찾아볼것. https://blogshine.tistory.com/486
 //  private List<Integer> ToIntegerList(BaseBallNumbers baseBallNumbers) {
