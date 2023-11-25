@@ -6,8 +6,9 @@ import java.util.Map;
 public class OutputView {
 
   public static final String START_GAME_MESSAGE = "숫자 야구 게임을 시작합니다.";
-  public static final int MAX_STRIKE_COUNT = 3;
   public static final String GAME_RESULT_MESSAGE = "\n%d개의 숫자를 모두 맞히셨습니다! 게임 종료";
+  public static final String END_GAME_MESSAGE = "게임 종료";
+  public static final int MAX_STRIKE_COUNT = 3;
 
   public static void printGameStart() {
     System.out.println(START_GAME_MESSAGE);
@@ -37,5 +38,9 @@ public class OutputView {
       System.out.printf(GAME_RESULT_MESSAGE, MAX_STRIKE_COUNT);
     }
     System.out.println();
+  }
+
+  public static void printGameEnd() {
+    System.out.println(END_GAME_MESSAGE);
   }
 }
