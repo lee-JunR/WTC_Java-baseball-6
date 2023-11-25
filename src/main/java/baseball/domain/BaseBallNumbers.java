@@ -22,11 +22,11 @@ public class BaseBallNumbers {
   }
 
   // TODO : 이렇게 써도 좋을지 의문
-  public BallNumber getNumbers(int index){
+  public BallNumber getNumbers(int index) {
     return this.baseBallNumbers.get(index);
   }
 
-  private void validateUnique(List<BallNumber> numbers){
+  private void validateUnique(List<BallNumber> numbers) {
     Set<Integer> uniqueNumbers = new HashSet<>();
     for (BallNumber ballNumber : numbers) {
       if (!uniqueNumbers.add(ballNumber.getBallNumber())) {
@@ -35,8 +35,8 @@ public class BaseBallNumbers {
     }
   }
 
-  private void validateDigits(List<BallNumber> numbers){
-    if (isaBoolean(numbers)){
+  private void validateDigits(List<BallNumber> numbers) {
+    if (isaBoolean(numbers)) {
       throw new IllegalArgumentException(OUT_OF_DIGITS_ERROR_MESSAGE);
     }
   }
