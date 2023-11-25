@@ -3,16 +3,16 @@ package baseball.ServiceTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
+import baseball.Constant.BallStatus;
 import baseball.Service.Score;
 import baseball.domain.BallNumber;
 import baseball.domain.BaseBallNumbers;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class ScoreTest {
+public class ScoreServiceTest {
 
   private BaseBallNumbers playerNumbers;
   private BaseBallNumbers computerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
@@ -52,16 +52,17 @@ public class ScoreTest {
   @Test
   @DisplayName("스트라이크_확인")
   public void 스트라이크_확인() {
-    List<BallNumber> expectedNumbers = Arrays.asList(
-        new BallNumber(1),
-        new BallNumber(2),
-        new BallNumber(3)
-    );
     // 123 / 1,0 -> 스트라이크
     int location = 0;
-    assertEquals("스트라이크", score.checkStrike(new BallNumber(1), location));
+    assertEquals(BallStatus.STRIKE, score.checkStrike(new BallNumber(1), location));
   }
 
-
+  @Test
+  @DisplayName("볼_확인")
+  public void 볼_확인() {
+    // 123 / 1,1 -> 볼
+    int location = 1;
+    assertEquals(BallStatus.BALL, score.checkBall(new BallNumber(1), location));
+  }
 
 }
