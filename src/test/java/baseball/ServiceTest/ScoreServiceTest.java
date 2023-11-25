@@ -1,7 +1,6 @@
 package baseball.ServiceTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 import baseball.Constant.BallStatus;
 import baseball.Service.ScoreService;
@@ -17,9 +16,9 @@ public class ScoreServiceTest {
   private BaseBallNumbers playerNumbers;
   private BaseBallNumbers computerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
       Arrays.asList(
-          new BallNumber(1),
+          new BallNumber(4),
           new BallNumber(2),
-          new BallNumber(3)
+          new BallNumber(5)
       )
   );
   ScoreService score = new ScoreService(computerNumbers);
@@ -38,7 +37,7 @@ public class ScoreServiceTest {
     for (BallStatus key : scoreCount.keySet()) {
       System.out.println(key.getStatus() + scoreCount.get(key).toString());
     }
-    assertEquals(scoreCount.get(BallStatus.STRIKE), 3);
+    assertEquals(scoreCount.get(BallStatus.STRIKE), 1);
   }
 
   @Test
@@ -46,16 +45,16 @@ public class ScoreServiceTest {
   public void 볼_카운팅_체크() {
     playerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
         Arrays.asList(
-            new BallNumber(3),
-            new BallNumber(1),
-            new BallNumber(2)
+            new BallNumber(4),
+            new BallNumber(5),
+            new BallNumber(6)
         )
     );
     HashMap<BallStatus, Integer> scoreCount = score.countScore(playerNumbers);
     for (BallStatus key : scoreCount.keySet()) {
       System.out.println(key.getStatus() + scoreCount.get(key).toString());
     }
-    assertEquals(scoreCount.get(BallStatus.BALL), 3);
+    assertEquals(scoreCount.get(BallStatus.BALL), 1);
   }
 
   @Test
@@ -63,15 +62,15 @@ public class ScoreServiceTest {
   public void 낫싱_카운팅_체크() {
     playerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
         Arrays.asList(
-            new BallNumber(4),
-            new BallNumber(5),
-            new BallNumber(2)
+            new BallNumber(7),
+            new BallNumber(8),
+            new BallNumber(9)
         )
     );
     HashMap<BallStatus, Integer> scoreCount = score.countScore(playerNumbers);
     for (BallStatus key : scoreCount.keySet()) {
       System.out.println(key.getStatus() + scoreCount.get(key).toString());
     }
-    assertEquals(scoreCount.get(BallStatus.NOTHING), 2);
+    assertEquals(scoreCount.get(BallStatus.NOTHING), 3);
   }
 }
