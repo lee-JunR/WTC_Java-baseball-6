@@ -15,7 +15,8 @@ public class ScoreService {
 
   public Boolean isStrike(BaseBallNumbers playerNumbers, int index) {
     // TODO : 디미터의 법칙 지킬것!
-    return playerNumbers.getNumbers(index).getBallNumber() == answerNumbers.getNumbers(index).getBallNumber();
+    return playerNumbers.getNumbers(index).getBallNumber() == answerNumbers.getNumbers(index)
+        .getBallNumber();
   }
 
   public Boolean isBall(BaseBallNumbers playerNumbers, int index) {
@@ -39,10 +40,7 @@ public class ScoreService {
     int countBall = (int) IntStream.range(0, 3)
         .filter(i -> isBall(playerNumbers, i))
         .count();
-    int countNothing = (int) IntStream.range(0, 3)
-        .filter(i -> isNothing(playerNumbers, i))
-        .count();
-    HashMap<BallStatus, Integer> countMap = new HashMap<BallStatus, Integer>();
+    HashMap<BallStatus, Integer> countMap = new HashMap<>();
     countMap.put(BallStatus.BALL, countBall);
     countMap.put(BallStatus.STRIKE, countStrike);
     return countMap;

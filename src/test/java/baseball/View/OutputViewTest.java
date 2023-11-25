@@ -11,8 +11,8 @@ public class OutputViewTest {
   @DisplayName("볼_스코어_테스트")
   void 볼_스코어_테스트() {
     HashMap<BallStatus, Integer> scoreCount = new HashMap<BallStatus, Integer>();
-    scoreCount.put(BallStatus.BALL, 3);
-    scoreCount.put(BallStatus.STRIKE, 0);
+    scoreCount.put(BallStatus.BALL, 2);
+    scoreCount.put(BallStatus.STRIKE, 1);
 
     OutputView.printBallsStatus(scoreCount);
   }
