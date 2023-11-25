@@ -13,4 +13,10 @@ public class BallNumberTest {
     assertThrows(IllegalArgumentException.class, () -> new BallNumber(0));
   }
 
+  @Test
+  @DisplayName("베이스볼_넘버_자리수_테스트")
+  void 베이스볼_넘버_자리수_테스트() {
+    assertThrows(IllegalArgumentException.class, () -> new BallNumber(10));
+  }
+
 }
