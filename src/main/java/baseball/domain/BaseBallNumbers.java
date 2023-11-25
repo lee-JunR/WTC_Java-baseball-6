@@ -21,7 +21,7 @@ public class BaseBallNumbers {
     return this.baseBallNumbers;
   }
 
-  // TODO : 이렇게 써도 좋을지 의문
+  // TODO : 이렇게 써도 좋을지 의문?
   public BallNumber getNumbers(int index) {
     return this.baseBallNumbers.get(index);
   }
