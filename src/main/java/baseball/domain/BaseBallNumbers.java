@@ -21,6 +21,11 @@ public class BaseBallNumbers {
     return this.baseBallNumbers;
   }
 
+  // TODO : 이렇게 써도 좋을지 의문
+  public BallNumber getNumbers(int index){
+    return this.baseBallNumbers.get(index);
+  }
+
   private void validateUnique(List<BallNumber> numbers){
     Set<Integer> uniqueNumbers = new HashSet<>();
     for (BallNumber ballNumber : numbers) {
