@@ -8,6 +8,7 @@ import baseball.Service.ScoreService;
 import baseball.domain.BallNumber;
 import baseball.domain.BaseBallNumbers;
 import java.util.Arrays;
+import java.util.HashMap;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,19 +50,20 @@ public class ScoreServiceTest {
    * 수가 전혀 없으면 낫싱 123 / 145 -> 1 스트라이크; 123 / 1,0 -> ㅅ트라이크; 123 / 1,1 -> 볼 123 / 4,2 -> 낫싱
    */
   @Test
-  @DisplayName("스트라이크_확인")
-  public void 스트라이크_확인() {
-    // 123 / 1,0 -> 스트라이크
-    int location = 0;
-    assertEquals(BallStatus.STRIKE, score.checkStrike(new BallNumber(1), location));
-  }
-
-  @Test
-  @DisplayName("볼_확인")
-  public void 볼_확인() {
-    // 123 / 1,1 -> 볼
-    int location = 1;
-    assertEquals(BallStatus.BALL, score.checkBall(new BallNumber(1), location));
+  @DisplayName("스트라이크_카운팅_체크")
+  public void 스트라이크_카운팅_체크() {
+    playerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
+        Arrays.asList(
+            new BallNumber(4),
+            new BallNumber(5),
+            new BallNumber(3)
+        )
+    );
+    HashMap<BallStatus, Integer> scoreCount = score.countScore(playerNumbers);
+    for (BallStatus key : scoreCount.keySet()) {
+      System.out.println(key.getStatus() + scoreCount.get(key).toString());
+    }
+    assertEquals(scoreCount.get(BallStatus.NOTHING), 3);
   }
 
 }
