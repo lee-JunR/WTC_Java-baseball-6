@@ -55,21 +55,4 @@ public class ScoreServiceTest {
     }
     assertEquals(scoreCount.get(BallStatus.BALL), 1);
   }
-
-  @Test
-  @DisplayName("낫싱_카운팅_체크")
-  public void 낫싱_카운팅_체크() {
-    playerNumbers = new BaseBallNumbers( // 컴퓨터가 생성한 정답 Numbers
-        Arrays.asList(
-            new BallNumber(7),
-            new BallNumber(8),
-            new BallNumber(9)
-        )
-    );
-    HashMap<BallStatus, Integer> scoreCount = score.countScore(playerNumbers);
-    for (BallStatus key : scoreCount.keySet()) {
-      System.out.println(key.getStatus() + scoreCount.get(key).toString());
-    }
-    assertEquals(scoreCount.get(BallStatus.NOTHING), 3);
-  }
 }

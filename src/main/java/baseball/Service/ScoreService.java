@@ -43,9 +43,8 @@ public class ScoreService {
         .filter(i -> isNothing(playerNumbers, i))
         .count();
     HashMap<BallStatus, Integer> countMap = new HashMap<BallStatus, Integer>();
-    countMap.put(BallStatus.STRIKE, countStrike);
     countMap.put(BallStatus.BALL, countBall);
-    countMap.put(BallStatus.NOTHING, countNothing);
+    countMap.put(BallStatus.STRIKE, countStrike);
     return countMap;
   }
 }
