@@ -1,9 +1,8 @@
-package baseball.ServiceTest;
+package baseball.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import baseball.Constant.BallStatus;
-import baseball.Service.ScoreService;
 import baseball.domain.BallNumber;
 import baseball.domain.BaseBallNumbers;
 import java.util.Arrays;
