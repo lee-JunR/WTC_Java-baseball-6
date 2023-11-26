@@ -22,8 +22,9 @@ public class BaseBallNumbers {
   }
 
   // TODO : 이렇게 써도 좋을지 의문?
-  public BallNumber getNumbers(int index) {
-    return this.baseBallNumbers.get(index);
+  // 어차피 벨리데이션 체크 완료했으니까 게터에서는 괜찮을듯?
+  public int getNumbers(int index) {
+    return this.baseBallNumbers.get(index).getBallNumber();
   }
 
   private void validateUnique(List<BallNumber> numbers) {

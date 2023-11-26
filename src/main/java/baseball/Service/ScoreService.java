@@ -14,22 +14,18 @@ public class ScoreService {
   }
 
   public Boolean isStrike(BaseBallNumbers playerNumbers, int index) {
-    // TODO : 디미터의 법칙 지킬것!
-    return playerNumbers.getNumbers(index).getBallNumber() == answerNumbers.getNumbers(index)
-        .getBallNumber();
+    return playerNumbers.getNumbers(index) == answerNumbers.getNumbers(index);
   }
 
   public Boolean isBall(BaseBallNumbers playerNumbers, int index) {
-    return (playerNumbers.getNumbers(index).getBallNumber() != answerNumbers.getNumbers(index)
-        .getBallNumber()) && (answerNumbers.getNumbers().stream()
-        // TODO : 디미터의 법칙 지킬것!
-        .anyMatch(x -> x.getBallNumber() == playerNumbers.getNumbers(index).getBallNumber()));
+    return (playerNumbers.getNumbers(index) != answerNumbers.getNumbers(index)
+    ) && (answerNumbers.getNumbers().stream()
+        .anyMatch(x -> x.getBallNumber() == playerNumbers.getNumbers(index)));
   }
 
   public Boolean isNothing(BaseBallNumbers playerNumbers, int index) {
     return answerNumbers.getNumbers().stream()
-        // TODO : 디미터의 법칙 지킬것!
-        .allMatch(x -> x.getBallNumber() != playerNumbers.getNumbers(index).getBallNumber());
+        .allMatch(x -> x.getBallNumber() != playerNumbers.getNumbers(index));
   }
 
   public HashMap<BallStatus, Integer> countScore(BaseBallNumbers playerNumbers) {
