@@ -22,15 +22,15 @@ public class OutputView {
     }
     scoreCount.forEach((status, count) -> {
       if (!nothingCondition && count > 0) { // 스트라이크와 볼의 개수가 0보다 크면 실행
-        System.out.printf("%d%s ", count, status.getStatus()); // %d개 스트라이크
+        System.out.printf("%d%s ", count, status.getStatus()); // %d개 스트라이크(볼)
       }
     });
     printResult(scoreCount);
   }
 
   private static boolean isNothing(Map<BallStatus, Integer> scoreCount) {
-    return scoreCount.get(BallStatus.BALL) == 0
-        && scoreCount.get(BallStatus.STRIKE) == 0; // 스트라이크와 볼의 개수가 0 이면 nothing
+    return scoreCount.get(BallStatus.STRIKE) == 0
+        && scoreCount.get(BallStatus.BALL) == 0; // 스트라이크와 볼의 개수가 0 이면 nothing
   }
 
   public static void printResult(Map<BallStatus, Integer> scoreCount) {

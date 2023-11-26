@@ -11,6 +11,7 @@ import java.util.HashMap;
 public class BaseBallGameController {
 
   public static final int MAX_STRIKE_COUNT = 3;
+  public static final int RESTART_NUMBER = 1;
 
   private BaseBallNumbers playerNumbers;
   private BaseBallNumbers computerNumbers;
@@ -37,7 +38,7 @@ public class BaseBallGameController {
 
   public boolean askRestart() {
     int restartNumber = InputView.inputRetryNumber();
-    if (restartNumber == 1) {
+    if (restartNumber == RESTART_NUMBER) {
       return true;
     }
     OutputView.printGameEnd();
