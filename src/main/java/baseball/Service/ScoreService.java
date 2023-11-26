@@ -3,6 +3,7 @@ package baseball.Service;
 import baseball.Constant.BallStatus;
 import baseball.domain.BaseBallNumbers;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.stream.IntStream;
 
 public class ScoreService {
@@ -36,7 +37,7 @@ public class ScoreService {
     int countBall = (int) IntStream.range(0, 3)
         .filter(i -> isBall(playerNumbers, i))
         .count();
-    HashMap<BallStatus, Integer> countMap = new HashMap<>();
+    LinkedHashMap<BallStatus, Integer> countMap = new LinkedHashMap<>();
     countMap.put(BallStatus.BALL, countBall);
     countMap.put(BallStatus.STRIKE, countStrike);
     return countMap;
