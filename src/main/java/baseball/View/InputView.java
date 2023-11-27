@@ -15,8 +15,26 @@ public class InputView {
 
   public static List<BallNumber> inputTryNumbers() {
     String input = readInput(INPUT_NUMBERS_MESSAGE);
-    validateInputInteger(input);
+    validateInput(input);
     return IntegerToBallNumberList(input);
+  }
+
+  private static void validateInput(String input) {
+    validateInputInteger(input);
+    validateInputEmpty(input);
+    validateInputBlank(input);
+  }
+
+  private static void validateInputBlank(String input) {
+    if(input.isBlank()){
+      throw new IllegalArgumentException(INPUT_ERROR_MESSAGE);
+    }
+  }
+
+  private static void validateInputEmpty(String input) {
+    if (input.isEmpty()){
+      throw new IllegalArgumentException(INPUT_ERROR_MESSAGE);
+    }
   }
 
   private static List<BallNumber> IntegerToBallNumberList(String input) {

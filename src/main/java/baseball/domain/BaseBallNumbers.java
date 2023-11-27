@@ -9,6 +9,7 @@ public class BaseBallNumbers {
   private static final int DIGITS = 3;
   private static final String OUT_OF_DIGITS_ERROR_MESSAGE = "세자리 수를 입력해주세요";
   private static final String DUPLICATE_NUMBER_ERROR_MESSAGE = "중복된 숫자는 허용되지 않습니다.";
+
   private final List<BallNumber> baseBallNumbers;
 
   public BaseBallNumbers(List<BallNumber> numbers) {
