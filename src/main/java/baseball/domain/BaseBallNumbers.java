@@ -9,7 +9,8 @@ public class BaseBallNumbers {
   private static final int DIGITS = 3;
   private static final String OUT_OF_DIGITS_ERROR_MESSAGE = "세자리 수를 입력해주세요";
   private static final String DUPLICATE_NUMBER_ERROR_MESSAGE = "중복된 숫자는 허용되지 않습니다.";
-  private List<BallNumber> baseBallNumbers;
+
+  private final List<BallNumber> baseBallNumbers;
 
   public BaseBallNumbers(List<BallNumber> numbers) {
     validateUnique(numbers);
@@ -21,12 +22,13 @@ public class BaseBallNumbers {
     return this.baseBallNumbers;
   }
 
-  // TODO : 이렇게 써도 좋을지 의문
-  public BallNumber getNumbers(int index){
-    return this.baseBallNumbers.get(index);
+  // TODO : 이렇게 써도 좋을지 의문?
+  // 어차피 벨리데이션 체크 완료했으니까 게터에서는 괜찮을듯?
+  public int getNumbers(int index) {
+    return this.baseBallNumbers.get(index).getBallNumber();
   }
 
-  private void validateUnique(List<BallNumber> numbers){
+  private void validateUnique(List<BallNumber> numbers) {
     Set<Integer> uniqueNumbers = new HashSet<>();
     for (BallNumber ballNumber : numbers) {
       if (!uniqueNumbers.add(ballNumber.getBallNumber())) {
@@ -35,8 +37,8 @@ public class BaseBallNumbers {
     }
   }
 
-  private void validateDigits(List<BallNumber> numbers){
-    if (isaBoolean(numbers)){
+  private void validateDigits(List<BallNumber> numbers) {
+    if (isaBoolean(numbers)) {
       throw new IllegalArgumentException(OUT_OF_DIGITS_ERROR_MESSAGE);
     }
   }
