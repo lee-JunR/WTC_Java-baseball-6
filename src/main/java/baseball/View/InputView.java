@@ -46,7 +46,7 @@ public class InputView {
 
   public static int inputRetryNumber() {
     String input = readInput(RETRY_NUMBERS_MESSAGE);
-    validateInputInteger(input);
+    validateInput(input);
     validateRange(input);
     return Integer.parseInt(input);
   }
